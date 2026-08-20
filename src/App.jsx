@@ -244,12 +244,29 @@ function App() {
             </div>
 
             <AnimatePresence>
+                {isPoweredOn && (
+                    <motion.button
+                        className="power-off-button interactive"
+                        onClick={() => setIsPoweredOn(false)}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        transition={{ duration: 0.5, delay: 1 }}
+                        title="Power Off"
+                    >
+                        <Power size={22} color="rgba(255, 255, 255, 0.8)" />
+                    </motion.button>
+                )}
+            </AnimatePresence>
+
+            <AnimatePresence>
                 {!isPoweredOn && (
                     <motion.div 
                         className="startup-screen"
-                        initial={{ opacity: 1 }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 1.2, ease: "easeInOut" }}
+                        transition={{ duration: 0.8, ease: "easeInOut" }}
                     >
                         <button className="power-button" onClick={() => setIsPoweredOn(true)}>
                             <Power size={48} strokeWidth={1.5} color="rgba(255, 255, 255, 0.8)" />
