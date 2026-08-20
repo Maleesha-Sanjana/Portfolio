@@ -177,3 +177,60 @@ h2 {
     border-color: rgba(255, 255, 255, 0.3);
     color: white;
 }
+
+/* Startup Screen */
+.startup-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+}
+
+.power-button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.05), inset 0 0 20px rgba(255, 255, 255, 0.02);
+    animation: powerPulse 3s infinite ease-in-out;
+}
+
+.power-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+    box-shadow: 0 0 60px rgba(255, 255, 255, 0.15), inset 0 0 30px rgba(255, 255, 255, 0.08);
+    animation: none;
+}
+
+.power-button:active {
+    transform: scale(0.95);
+}
+
+@keyframes powerPulse {
+    0% {
+        box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+    }
+    50% {
+        box-shadow: 0 0 60px rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.25);
+    }
+    100% {
+        box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+    }
+}
+

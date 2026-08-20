@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
-import { Smartphone, Code2, Rocket, Mail, ExternalLink } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Smartphone, Code2, Rocket, Mail, ExternalLink, Power } from 'lucide-react';
 import './index.css';
 
 const frameCount = 300;
@@ -20,6 +20,16 @@ function App() {
     const imagesRef = useRef(new Array(frameCount));
     const frameRef = useRef({ frame: 0 });
     const tickingRef = useRef(false);
+    const [isPoweredOn, setIsPoweredOn] = useState(false);
+
+    useEffect(() => {
+        if (!isPoweredOn) {
+            document.body.style.overflow = 'hidden';
+            window.scrollTo(0, 0);
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+    }, [isPoweredOn]);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -232,6 +242,21 @@ function App() {
                 </motion.div>
 
             </div>
+
+            <AnimatePresence>
+                {!isPoweredOn && (
+                    <motion.div 
+                        className="startup-screen"
+                        initial={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 1.2, ease: "easeInOut" }}
+                    >
+                        <button className="power-button" onClick={() => setIsPoweredOn(true)}>
+                            <Power size={48} strokeWidth={1.5} color="rgba(255, 255, 255, 0.8)" />
+                        </button>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </>
     );
 }
