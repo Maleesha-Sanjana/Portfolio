@@ -55,8 +55,8 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 0 10vw;
+    justify-content: flex-end; /* Pushes content towards the bottom */
+    padding: 0 10vw 15vh 10vw; /* Keeps it a bit off the absolute bottom edge */
     box-sizing: border-box;
 }
 

@@ -169,9 +169,7 @@ function App() {
                     <div className="glass-card interactive">
                         <h2>About Me</h2>
                         <p>
-                            I specialize in building high-performance, native-feeling mobile applications. 
-                            My approach combines solid engineering with an obsession for smooth animations 
-                            and perfect pixel design. I love bridging the gap between design and engineering.
+                            I am currently pursuing a BSc. (Hons) in Software Engineering at CINEC Campus and working as a Full Stack Mobile Application Developer at Jazz Business Solutions (Pvt) Ltd. I specialize in building high-performance mobile applications, combining solid engineering with an obsession for smooth animations and pixel-perfect design.
                         </p>
                         
                         <h3 style={{ color: 'white', marginTop: '2rem', marginBottom: '1rem', fontFamily: 'Outfit' }}>Core Technologies</h3>
