@@ -11,6 +11,8 @@ import ContactSection from './components/ContactSection';
 import StartupScreen from './components/StartupScreen';
 import PowerOffButton from './components/PowerOffButton';
 
+import AIBot from './components/AIBot';
+
 function App() {
     const [isPoweredOn, setIsPoweredOn] = useState(false);
 
@@ -51,6 +53,8 @@ function App() {
                     <StartupScreen setIsPoweredOn={setIsPoweredOn} />
                 )}
             </AnimatePresence>
+
+            {isPoweredOn && <AIBot />}
         </>
     );
 }
