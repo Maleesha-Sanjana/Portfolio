@@ -22,7 +22,7 @@ const DummyApp = ({ title }) => {
             {/* Dynamic content based on tab */}
             <div className="app-content">
                 <AnimatePresence mode="wait">
-                    <motion.div 
+                    <motion.div
                         key={activeTab}
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -99,8 +99,8 @@ export default function MobileSimulator({ project }) {
 
             <div className="device-screen">
                 {project.iframeSrc ? (
-                    <iframe 
-                        src={project.iframeSrc} 
+                    <iframe
+                        src={project.iframeSrc}
                         title={project.title}
                         frameBorder="0"
                         width="100%"
