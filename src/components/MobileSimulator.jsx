@@ -87,6 +87,8 @@ const DummyApp = ({ title }) => {
 };
 
 export default function MobileSimulator({ project }) {
+    const [isLoading, setIsLoading] = useState(true);
+
     if (!project) return null;
 
     return (
@@ -97,15 +99,44 @@ export default function MobileSimulator({ project }) {
                 <div className="speaker"></div>
             </div>
 
-            <div className="device-screen">
+            <div className="device-screen" style={{ position: 'relative' }}>
                 {project.iframeSrc ? (
-                    <iframe
-                        src={project.iframeSrc}
-                        title={project.title}
-                        frameBorder="0"
-                        width="100%"
-                        height="100%"
-                    ></iframe>
+                    <>
+                        <AnimatePresence>
+                            {isLoading && (
+                                <motion.div
+                                    initial={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    style={{
+                                        position: 'absolute',
+                                        inset: 0,
+                                        background: '#fff',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        zIndex: 10
+                                    }}
+                                >
+                                    <div className="spinner" style={{ width: 40, height: 40, border: '4px solid #f3f3f3', borderTop: '4px solid #007AFF', borderRadius: '50%', animation: 'spin 1s linear infinite' }}></div>
+                                    <p style={{ marginTop: 15, color: '#666', fontFamily: 'Outfit', fontSize: '0.9rem' }}>Loading App...</p>
+                                    <style>{`
+                                        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+                                    `}</style>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                        <iframe
+                            src={project.iframeSrc}
+                            title={project.title}
+                            frameBorder="0"
+                            width="100%"
+                            height="100%"
+                            onLoad={() => setIsLoading(false)}
+                            style={{ opacity: isLoading ? 0 : 1, transition: 'opacity 0.3s' }}
+                        ></iframe>
+                    </>
                 ) : (
                     <DummyApp title={project.title} />
                 )}
