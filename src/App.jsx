@@ -7,6 +7,7 @@ import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import ExpertiseSection from './components/ExpertiseSection';
 import ProjectsSection from './components/ProjectsSection';
+import LetsFunTimeSection from './components/LetsFunTimeSection';
 import ContactSection from './components/ContactSection';
 import StartupScreen from './components/StartupScreen';
 import PowerOffButton from './components/PowerOffButton';
@@ -38,6 +39,8 @@ function App() {
                 <ExpertiseSection />
                 <div className="spacer"></div>
                 <ProjectsSection />
+                <div className="spacer"></div>
+                <LetsFunTimeSection />
                 <div className="spacer"></div>
                 <ContactSection />
             </div>

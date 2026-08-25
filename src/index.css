@@ -61,7 +61,7 @@ body {
 }
 
 .spacer {
-    height: 100vh; /* Used to space out sections across the 500vh body */
+    height: 30vh; /* Reduced to make section gaps shorter */
 }
 
 /* Typography */
@@ -1181,4 +1181,149 @@ h2 {
     background: #006ce4;
 }
 
+/* ==========================================================================
+   LET'S FUN TIME SECTION
+   ========================================================================== */
 
+.fun-time-section {
+    position: relative;
+    padding: 60px 20px;
+    background: rgba(10, 10, 10, 0.4);
+    border-radius: 24px;
+    margin: 40px auto;
+    max-width: 1200px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.fun-time-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fun-time-container {
+    width: 100%;
+    max-width: 960px;
+    margin-top: 40px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.canvas-wrapper {
+    width: 100%;
+    aspect-ratio: 16/9;
+    position: relative;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.cam-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+}
+
+.icon-pulse {
+    animation: pulse 2s infinite;
+    color: #007AFF;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+.start-cam-btn {
+    padding: 14px 28px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #007AFF, #00C8FF);
+    color: white;
+    border: none;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3);
+}
+
+.start-cam-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 122, 255, 0.5);
+}
+
+.start-cam-btn:disabled {
+    background: #333;
+    color: #888;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.controls-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.control-group {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    border-radius: 40px;
+    padding: 8px;
+    display: flex;
+    gap: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    pointer-events: auto;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 30px;
+    background: transparent;
+    border: 1px solid transparent;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: capitalize;
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.control-btn.highlight {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.control-btn.highlight.active {
+    background: rgba(0, 122, 255, 0.2);
+    border-color: rgba(0, 122, 255, 0.4);
+    color: #00C8FF;
+}

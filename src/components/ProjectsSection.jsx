@@ -7,12 +7,12 @@ import BrowserSimulator from './BrowserSimulator';
 
 const projects = [
     {
-        title: "Sales Utility App",
+        title: "Salesman Utility App",
         type: "mobile",
-        description: "A comprehensive Flutter-based mobile application designed to streamline field sales operations, inventory management, and live location tracking.",
-        tech: ["Flutter", "Provider", "Geolocator"],
+        description: "The application empowers sales representatives to efficiently take customer orders, manage stock, generate invoices, and log customer locations directly from their mobile devices. Simultaneously, it provides administrators with powerful tools for real-time tracking, user management, and performance monitoring.",
+        tech: ["Flutter", "Provider", "Geolocator", "Flutter Map", "Background Service"],
         link: "#",
-        iframeSrc: "/apps/sales-utility/index.html",
+        iframeSrc: "/apps/sales-utility/index.html#/invoices",
         previewImg: "/apps/sales-utility/salesman-utility.jpg"
     },
     {
@@ -39,13 +39,13 @@ const MiniSimulatorButton = ({ project, onClick }) => {
     // Website: 80x50 placeholder, 320x200 native, 0.25 scale
     const placeholderWidth = isWebsite ? 80 : 50;
     const placeholderHeight = isWebsite ? 50 : 100;
-    
+
     const nativeWidth = isWebsite ? 320 : 175;
     const nativeHeight = isWebsite ? 200 : 350;
     const idleScale = isWebsite ? 0.25 : 0.2857;
 
     return (
-        <motion.div 
+        <motion.div
             style={{ width: placeholderWidth, height: placeholderHeight, position: 'relative', zIndex: isHovered ? 50 : 1 }}
             animate={{ y: isHovered ? -50 : [0, -8, 0], x: isHovered ? -20 : 0 }}
             transition={{ y: { duration: isHovered ? 0.4 : 1.5, repeat: isHovered ? 0 : Infinity, ease: "easeOut" } }}
@@ -54,9 +54,9 @@ const MiniSimulatorButton = ({ project, onClick }) => {
             onClick={onClick}
             title="Run Simulator"
         >
-            <motion.div 
+            <motion.div
                 className={isWebsite ? "mini-browser-btn interactive" : "mini-simulator-btn interactive"}
-                style={{ 
+                style={{
                     position: 'absolute',
                     width: nativeWidth,
                     height: nativeHeight,
@@ -69,21 +69,21 @@ const MiniSimulatorButton = ({ project, onClick }) => {
                     borderStyle: 'solid',
                     display: 'flex',
                     flexDirection: 'column',
-                    perspective: 1000, 
+                    perspective: 1000,
                     transformStyle: "preserve-3d",
                     transformOrigin: "center center",
                     margin: 0
                 }}
-                animate={{ 
+                animate={{
                     scale: isHovered ? 1 : idleScale,
                     rotateY: isHovered ? -15 : 0,
                     rotateX: isHovered ? 10 : 0,
                     rotateZ: isHovered ? -2 : 0,
-                    boxShadow: isHovered 
+                    boxShadow: isHovered
                         ? "20px 30px 40px rgba(0,0,0,0.6), inset 0 0 10px rgba(255,255,255,0.2)"
                         : `0 ${35}px ${70}px rgba(0,0,0,0.5), inset 0 0 ${17.5}px rgba(255,255,255,0.1)`
                 }}
-                transition={{ 
+                transition={{
                     scale: { type: "spring", stiffness: 200, damping: 20 },
                     default: { duration: 0.4, ease: "easeOut" }
                 }}
@@ -101,18 +101,18 @@ const MiniSimulatorButton = ({ project, onClick }) => {
                 <div className={isWebsite ? "" : "mini-screen"} style={{ flex: 1, position: 'relative', overflow: 'hidden', borderRadius: isWebsite ? '0 0 6px 6px' : 21, background: isWebsite ? '#0a0a0a' : undefined }}>
                     <AnimatePresence mode="wait">
                         {isHovered && project.previewImg ? (
-                            <motion.img 
+                            <motion.img
                                 key="preview"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                                 transition={{ duration: 0.2 }}
-                                src={project.previewImg} 
-                                alt="Preview" 
+                                src={project.previewImg}
+                                alt="Preview"
                                 style={{ position: 'absolute', width: '100%', height: '100%', objectFit: 'cover' }}
                             />
                         ) : (
-                            <motion.span 
+                            <motion.span
                                 key="text"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
@@ -121,7 +121,7 @@ const MiniSimulatorButton = ({ project, onClick }) => {
                                 className="mini-text"
                                 style={{ position: 'absolute', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.9rem', color: 'white', fontWeight: 800, textAlign: 'center' }}
                             >
-                                Tap to<br/>Demo
+                                Tap to<br />Demo
                             </motion.span>
                         )}
                     </AnimatePresence>
@@ -143,7 +143,7 @@ export default function ProjectsSection() {
     };
 
     return (
-        <motion.div 
+        <motion.div
             id="projects-section"
             className="section"
             initial="hidden"
@@ -153,10 +153,10 @@ export default function ProjectsSection() {
             style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
         >
             <h2 style={{ marginBottom: activeProject ? '1rem' : '0' }}>Recent Projects</h2>
-            
+
             <AnimatePresence mode="wait">
                 {!activeProject ? (
-                    <motion.div 
+                    <motion.div
                         key="grid"
                         className="project-grid"
                         initial={{ opacity: 0, y: 20 }}
@@ -174,9 +174,9 @@ export default function ProjectsSection() {
                                     ))}
                                 </div>
                                 <div className="project-links">
-                                    <MiniSimulatorButton 
-                                        project={project} 
-                                        onClick={() => handleRunDemo(project)} 
+                                    <MiniSimulatorButton
+                                        project={project}
+                                        onClick={() => handleRunDemo(project)}
                                     />
                                     <div style={{ display: 'flex', gap: '1rem', marginLeft: 'auto' }}>
                                         <button className="btn-icon interactive" title="View Source">
@@ -191,7 +191,7 @@ export default function ProjectsSection() {
                         ))}
                     </motion.div>
                 ) : (
-                    <motion.div 
+                    <motion.div
                         key="showcase"
                         className="showcase-view interactive"
                         initial={{ opacity: 0, y: 30 }}

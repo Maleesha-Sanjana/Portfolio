@@ -40886,7 +40886,7 @@ var $async$BN=A.l(function(a,b){if(a===1){o.push(b)
 s=p}for(;;)switch(s){case 0:g=$.akg
 if(g){q=$.fD
 s=1
-break}g=["http://localhost:3000/api","http://localhost:3000/api"],k=0
+break}g=["http://localhost:5001/api","http://localhost:5001/api"],k=0
 case 3:if(!(k<2)){s=5
 break}n=g[k]
 p=7
@@ -40916,9 +40916,9 @@ break
 case 9:case 4:++k
 s=3
 break
-case 5:$.fD="http://localhost:3000/api"
+case 5:$.fD="http://localhost:5001/api"
 $.akg=!0
-A.aC("\u26a0\ufe0f API health checks failed; defaulting to http://localhost:3000/api")
+A.aC("\u26a0\ufe0f API health checks failed; defaulting to http://localhost:5001/api")
 q=$.fD
 s=1
 break
@@ -40944,11 +40944,11 @@ n=A.S(i)
 m=A.b4(i)
 l=n
 j=J.e(l).toLowerCase()
-if(!(B.m.n(j,"socketexception")||B.m.n(j,"clientexception")||B.m.n(j,"connection refused")||B.m.n(j,"connection reset")||B.m.n(j,"network is unreachable")||B.m.n(j,"failed host lookup")||B.m.n(j,"timed out")||B.m.n(j,"timeout")||B.m.n(j,"os error")||l instanceof A.vu)||$.fD==="http://localhost:3000/api")A.aqN(n,m)
+if(!(B.m.n(j,"socketexception")||B.m.n(j,"clientexception")||B.m.n(j,"connection refused")||B.m.n(j,"connection reset")||B.m.n(j,"network is unreachable")||B.m.n(j,"failed host lookup")||B.m.n(j,"timed out")||B.m.n(j,"timeout")||B.m.n(j,"os error")||l instanceof A.vu)||$.fD==="http://localhost:5001/api")A.aqN(n,m)
 A.aC("\u26a0\ufe0f Primary API failed ("+$.fD+"): "+A.f(n))
-$.fD="http://localhost:3000/api"
+$.fD="http://localhost:5001/api"
 $.akg=!0
-A.aC("\ud83d\udd04 Switching API host to http://localhost:3000/api")
+A.aC("\ud83d\udd04 Switching API host to http://localhost:5001/api")
 s=8
 return A.c(a.$0(),$async$ip)
 case 8:q=e
@@ -173727,7 +173727,7 @@ $.byC=A.a([],t.s)
 $.bsV=!1
 $.byD=!1
 $.bCq=0
-$.fD="http://localhost:3000/api"
+$.fD="http://localhost:5001/api"
 $.akg=!1
 $.akm=null
 $.bsR=null
