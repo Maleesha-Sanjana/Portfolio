@@ -5,7 +5,6 @@ import './index.css';
 import ScrollCanvas from './components/ScrollCanvas';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
-import ExpertiseSection from './components/ExpertiseSection';
 import ProjectsSection from './components/ProjectsSection';
 import LetsFunTimeSection from './components/LetsFunTimeSection';
 import ContactSection from './components/ContactSection';
@@ -28,15 +27,13 @@ function App() {
 
     return (
         <>
-            <ScrollCanvas />
+            <ScrollCanvas isPoweredOn={isPoweredOn} />
 
             {/* OVERLAY CONTENT */}
-            <div className="overlay-container">
+            <div className="overlay-container" style={{ filter: isPoweredOn ? 'none' : 'blur(15px)', transition: 'filter 0.5s ease' }}>
                 <HeroSection />
                 <div className="spacer"></div>
                 <AboutSection />
-                <div className="spacer"></div>
-                <ExpertiseSection />
                 <div className="spacer"></div>
                 <ProjectsSection />
                 <div className="spacer"></div>

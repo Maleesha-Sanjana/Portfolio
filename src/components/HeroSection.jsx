@@ -11,6 +11,7 @@ export default function HeroSection() {
             whileInView="visible"
             viewport={{ once: false, margin: "-20%" }}
             variants={fadeUpVariants}
+            style={{ willChange: 'transform, opacity' }}
         >
             <h1>Maleesha Sanjana</h1>
             <p className="subtitle">Crafting immersive digital experiences as a Mobile Application Developer.</p>
