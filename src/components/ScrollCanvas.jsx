@@ -7,7 +7,7 @@ const currentFrame = (index) => {
     return `/Animation/ezgif-frame-${(index + 1).toString().padStart(3, '0')}.png`;
 };
 
-export default function ScrollCanvas() {
+export default function ScrollCanvas({ isPoweredOn }) {
     const canvasRef = useRef(null);
     const [loading, setLoading] = useState(0);
     const [isFirstFrameLoaded, setIsFirstFrameLoaded] = useState(false);
@@ -120,7 +120,7 @@ export default function ScrollCanvas() {
                     {error}
                 </div>
             )}
-            <canvas ref={canvasRef} id="canvas"></canvas>
+            <canvas ref={canvasRef} id="canvas" style={{ filter: isPoweredOn ? 'none' : 'blur(15px)', transition: 'filter 0.5s ease' }}></canvas>
         </>
     );
 }

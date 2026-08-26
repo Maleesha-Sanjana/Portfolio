@@ -6,7 +6,7 @@ import { fadeUpVariants } from '../utils/animations';
 export default function ContactSection() {
     return (
         <motion.div 
-            className="section" style={{ justifyContent: 'flex-end', paddingBottom: '10vh' }}
+            className="section" style={{ minHeight: 'auto', justifyContent: 'center', padding: '10vh 10vw' }}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, margin: "-10%" }}

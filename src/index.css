@@ -189,9 +189,8 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(10, 10, 10, 0.6);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
+    background: rgba(10, 10, 10, 0.4); /* Reduced opacity since elements below are blurred */
+    /* Hardware acceleration not needed since we removed backdrop-filter */
 }
 
 .power-button {
